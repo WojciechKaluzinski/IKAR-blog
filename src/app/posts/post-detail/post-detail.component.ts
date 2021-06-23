@@ -13,6 +13,7 @@ export class PostDetailComponent implements OnInit {
 
     post: Post | undefined;
     editing: boolean = false;
+    reserveLinkText: string = 'Dowiedz się więcej';
 
     constructor(private route: ActivatedRoute, private postService: PostService, private router: Router, public auth: AuthService) {
     }
@@ -27,10 +28,12 @@ export class PostDetailComponent implements OnInit {
         return this.postService.getPostData(id).subscribe(data => this.post = data)
     }
 
-    updatePost(){
+    updatePost() {
         const formData = {
-           title: this.post?.title,
-           content: this.post?.content
+            title: this.post?.title,
+            content: this.post?.content,
+            linkAddress: this.post?.linkAddress,
+            linkText: this.post?.linkText,
         };
         const id = this.route.snapshot.paramMap.get('id');
         if (id != null) {

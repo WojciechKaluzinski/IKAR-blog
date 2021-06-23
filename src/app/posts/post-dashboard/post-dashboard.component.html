@@ -25,6 +25,14 @@
                 <textarea matInput placeholder="Twój tekst" [(ngModel)]="content" rows="10"></textarea>
             </mat-form-field>
             <br>
+            <mat-form-field>
+                <input matInput placeholder="Link" [(ngModel)]="linkAddress">
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <input matInput placeholder="Tytuł linku" [(ngModel)]="linkText">
+            </mat-form-field>
+            <br>
             <button mat-raised-button color="accent" (click)="createPost()" [disabled]="!title || !content || !image">{{saving}}
             </button>
         </mat-expansion-panel>

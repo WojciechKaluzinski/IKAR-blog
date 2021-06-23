@@ -16,6 +16,8 @@ export class PostDashboardComponent implements OnInit {
     title: string | undefined;
     image: string = '';
     content: string | undefined;
+    linkAddress: string = '';
+    linkText: string = '';
 
     saving: string = 'Utwórz post';
 
@@ -38,11 +40,15 @@ export class PostDashboardComponent implements OnInit {
             content: this.content,
             image: this.image,
             published: new Date(),
-            title: this.title
+            title: this.title,
+            linkAddress: this.linkAddress,
+            linkText: this.linkText,
         };
         this.postService.create(data);
         this.title = '';
         this.content = '';
+        this.linkAddress = '';
+        this.linkText = '';
         this.saving = 'Post utworzony';
         setTimeout(() => (this.saving = 'Utwórz post'), 3000)
     }

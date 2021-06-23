@@ -11,8 +11,14 @@ mat-card{
     margin: 10px 0;
     max-width: 700px;
 }
+mat-card-content:first-child{
+    text-align: center;
+}
  img{
+     height: min(50vw, 300px);
      width: 100%;
+     object-fit: contain;
+     margin: auto;
  }
  mat-card-content:focus{
      outline: none;
