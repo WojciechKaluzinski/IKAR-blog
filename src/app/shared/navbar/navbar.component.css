@@ -9,3 +9,7 @@ span:focus {
 span {
     cursor: pointer;
 }
+
+.active{
+    color: #ff5252;
+}

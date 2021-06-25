@@ -4,6 +4,7 @@ import {CommonModule} from '@angular/common';
 import {MaterialModule} from '../material.module';
 import {NavbarComponent} from './navbar/navbar.component';
 import {FormsModule} from "@angular/forms";
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -14,14 +15,16 @@ import {FormsModule} from "@angular/forms";
         CommonModule,
         MaterialModule,
         RouterModule,
-        FormsModule
+        FormsModule,
+        MatMenuModule
     ],
     exports: [
         CommonModule,
         MaterialModule,
         NavbarComponent,
         RouterModule,
-        FormsModule
+        FormsModule,
+        MatMenuModule
     ]
 })
 export class SharedModule {

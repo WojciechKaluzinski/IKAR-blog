@@ -14,17 +14,21 @@ import { SharedModule } from './shared/shared.module';
 import { PostsModule } from './posts/posts.module'
 
 import {Routes, RouterModule} from "@angular/router";
+import { ContactComponent } from './contact/contact.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 //TODO tutaj będą jakieś zmiany jak będę chciał mieć home page
 const routes: Routes = [
+    { path: 'kontakt', component: ContactComponent},
     { path: '', redirectTo: '/blog', pathMatch:'full'},
-    { path: '', loadChildren: './posts/posts.module#PostsModule' }
+    { path: '', loadChildren: './posts/posts.module#PostsModule' },
 ];
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        ContactComponent
     ],
     imports: [
         RouterModule.forRoot(routes),
@@ -36,8 +40,10 @@ const routes: Routes = [
         BrowserAnimationsModule,
         CoreModule,
         SharedModule,
-        PostsModule
+        PostsModule,
+        MatExpansionModule
     ],
+    exports: [MatExpansionModule],
     providers: [],
     bootstrap: [AppComponent]
 })
