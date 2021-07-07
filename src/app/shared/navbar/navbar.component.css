@@ -13,3 +13,8 @@ span {
 .active{
     color: #ff5252;
 }
+.mat-raised-button{
+    display: grid;
+    margin: auto;
+    width: 90%;
+}

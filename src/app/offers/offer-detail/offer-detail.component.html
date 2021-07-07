@@ -1,0 +1,47 @@
+<ng-container *ngIf="offer">
+    <div [hidden]="!editing">
+        <mat-card>
+            <h2>Edycja posta: </h2>
+            <mat-form-field>
+                <input matInput placeholder="Pojazd" [(ngModel)]="offer.carModel">
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <textarea matInput placeholder="Opis" [(ngModel)]="offer.content" rows="10"></textarea>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <input matInput placeholder="Właściciel" [(ngModel)]="offer.owner">
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <input matInput placeholder="Numer telefonu" [(ngModel)]="offer.phone">
+            </mat-form-field>
+            <br>
+            <button mat-raised-button color="accent" (click)="updateOffer()">Zapisz</button>
+            <button mat-button (click)="editing=false">Anuluj</button>
+        </mat-card>
+    </div>
+
+    <div [hidden]="editing">
+        <mat-card>
+            <img src="{{offer.image}}" alt="{{offer.carModel}}">
+            <p><small *ngIf="offer.published">Post napisany przez: {{offer.author}}
+                dnia:  {{offer.published.toDate() | date: 'short'}}</small></p>
+            <mat-card-content>
+                <h3>{{offer.carModel}}</h3>
+                <p>{{offer.content}}</p>
+                <h2>{{offer.owner}}</h2>
+                <a mat-raised-button color="primary" href="{{offer.phone}}" target="_blank">{{offer.phone}}</a>
+            </mat-card-content>
+            <mat-card-actions align="end" *ngIf="auth.currentUserId === offer.authorId">
+                <button mat-icon-button (click)="editing=true">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button (click)="delete()">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</ng-container>

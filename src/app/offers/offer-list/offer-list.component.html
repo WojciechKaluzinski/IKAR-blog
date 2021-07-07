@@ -1,0 +1,14 @@
+<section>
+    <mat-card *ngFor="let offer of offers | async">
+        <mat-card-content routerLink="{{offer.id}}" >
+            <img src="{{offer.image}}" alt="{{offer.carModel}}">
+            <h2>{{offer.carModel}}</h2>
+            <p><small *ngIf="offer.published">Oferta utworzona przez: {{offer.author}} dnia:  {{offer.published.toDate() | date: 'short'}}</small></p>
+        </mat-card-content>
+        <mat-card-actions align="end" *ngIf="auth.currentUserId === offer.authorId">
+            <button *ngIf="offer.id" mat-icon-button (click)="delete(offer.id)">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</section>

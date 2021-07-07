@@ -12,10 +12,19 @@
                 <mat-icon>call</mat-icon>
                 <span>Kontakt</span>
             </button>
+            <button mat-menu-item routerLink="/oferty" routerLinkActive="active">
+                <mat-icon>local_offer</mat-icon>
+                <span>Oferty</span>
+            </button>
         </mat-menu>
         <span class="spacer"></span>
         <div *ngIf="auth.afAuth.authState | async as user; else showLogin">
-            <button mat-raised-button color="accent" routerLink="/dashboard">Napisz Post</button>
+            <button mat-button [matMenuTriggerFor]="menu">Twórz</button>
+            <mat-menu #menu="matMenu">
+                <button mat-raised-button color="accent" routerLink="/dashboard">Napisz Post</button>
+                <button mat-raised-button color="accent" routerLink="/offer_dashboard">Utwórz ofertę</button>
+            </mat-menu>
+
             <!--  <span>Witaj {{user.displayName}}</span>-->
             <button mat-button (click)="auth.logout()">Wyloguj się</button>
         </div>

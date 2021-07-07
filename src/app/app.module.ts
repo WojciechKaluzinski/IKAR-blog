@@ -12,6 +12,7 @@ import { AppComponent } from './app.component'
 import { CoreModule } from './core/core.module'
 import { SharedModule } from './shared/shared.module';
 import { PostsModule } from './posts/posts.module'
+import  { OffersModule} from "./offers/offers.module";
 
 import {Routes, RouterModule} from "@angular/router";
 import { ContactComponent } from './contact/contact.component';
@@ -23,6 +24,8 @@ const routes: Routes = [
     { path: 'kontakt', component: ContactComponent},
     { path: '', redirectTo: '/blog', pathMatch:'full'},
     { path: '', loadChildren: './posts/posts.module#PostsModule' },
+    { path: 'oferty', component: OffersModule},
+    { path: '', loadChildren: './offers/offers.module#OffersModule' },
 ];
 
 @NgModule({
@@ -41,6 +44,7 @@ const routes: Routes = [
         CoreModule,
         SharedModule,
         PostsModule,
+        OffersModule,
         MatExpansionModule
     ],
     exports: [MatExpansionModule],

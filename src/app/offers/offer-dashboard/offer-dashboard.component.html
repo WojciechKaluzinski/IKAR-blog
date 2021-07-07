@@ -1,0 +1,41 @@
+<section>
+    <mat-accordion>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Utwórz nową ofertę
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <div>
+                <input type="file" name="file" id="file" (change)="uploadImage($event)">
+                <div [hidden]="!uploadPercent">
+                    <mat-progress-bar mode="determinate" value="{{uploadPercent | async}}"></mat-progress-bar>
+                </div>
+                <div [hidden]="!image">
+                    <img [src]="image || '//:0'">
+                </div>
+            </div>
+
+            <mat-form-field>
+                <input matInput placeholder="Pojazd" [(ngModel)]="carModel">
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <textarea matInput placeholder="Opis" [(ngModel)]="content" rows="10"></textarea>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <input matInput placeholder="Właściciel" [(ngModel)]="owner">
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <input matInput placeholder="Numer telefonu" [(ngModel)]="phone">
+            </mat-form-field>
+            <br>
+            <button mat-raised-button color="accent" (click)="createOffer()" [disabled]="!carModel || !content || !image || !owner || !phone">{{saving}}
+            </button>
+        </mat-expansion-panel>
+    </mat-accordion>
+</section>
+
