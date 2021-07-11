@@ -21,9 +21,7 @@
                 <input matInput placeholder="Pojazd" [(ngModel)]="carModel">
             </mat-form-field>
             <br>
-            <mat-form-field>
-                <textarea matInput placeholder="Opis" [(ngModel)]="content" rows="10"></textarea>
-            </mat-form-field>
+            <ckeditor [editor]="Editor" [(ngModel)]="content"></ckeditor>
             <br>
             <mat-form-field>
                 <input matInput placeholder="Właściciel" [(ngModel)]="owner">

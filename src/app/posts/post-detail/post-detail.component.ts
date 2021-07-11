@@ -3,6 +3,7 @@ import {Router, ActivatedRoute} from "@angular/router";
 import {PostService} from "../post.service";
 import {Post} from "../post";
 import {AuthService} from "../../core/auth.service";
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
     selector: 'app-post-detail',
@@ -11,6 +12,7 @@ import {AuthService} from "../../core/auth.service";
 })
 export class PostDetailComponent implements OnInit {
 
+    public Editor = ClassicEditor;
     post: Post | undefined;
     editing: boolean = false;
     reserveLinkText: string = 'Dowiedz się więcej';

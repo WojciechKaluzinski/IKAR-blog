@@ -3,6 +3,7 @@ import {AuthService} from "../../core/auth.service";
 import {PostService} from "../post.service";
 import {Observable, Subscription} from "rxjs";
 import { AngularFireStorage } from 'angularfire2/storage';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import {finalize} from "rxjs/operators";
 
 
@@ -13,6 +14,7 @@ import {finalize} from "rxjs/operators";
 })
 export class PostDashboardComponent implements OnInit {
 
+    public Editor = ClassicEditor;
     title: string | undefined;
     image: string = '';
     content: string | undefined;

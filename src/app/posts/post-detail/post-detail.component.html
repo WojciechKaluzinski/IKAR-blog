@@ -6,9 +6,7 @@
                 <input matInput placeholder="Tytuł" [(ngModel)]="post.title">
             </mat-form-field>
             <br>
-            <mat-form-field>
-                <textarea matInput placeholder="Twój tekst" [(ngModel)]="post.content" rows="10"></textarea>
-            </mat-form-field>
+            <ckeditor [editor]="Editor" [(ngModel)]="post.content"></ckeditor>
             <br>
             <mat-form-field>
                 <input matInput placeholder="Adres link" [(ngModel)]="post.linkAddress">
@@ -30,7 +28,7 @@
                 dnia:  {{post.published.toDate() | date: 'short'}}</small></p>
             <mat-card-content>
                 <h3>{{post.title}}</h3>
-                <p>{{post.content}}</p>
+                <p [innerHTML]="post.content"></p>
                 <a mat-raised-button color="primary" href="{{post.linkAddress}}" target="_blank">{{post.linkText == '' ? reserveLinkText : post.linkText}}</a>
             </mat-card-content>
             <mat-card-actions align="end" *ngIf="auth.currentUserId === post.authorId">

@@ -3,7 +3,8 @@ import {AuthService} from "../../core/auth.service";
 import {OfferService} from "../offer.service";
 import {Observable, Subscription} from "rxjs";
 import { AngularFireStorage } from 'angularfire2/storage';
-import {finalize} from "rxjs/operators";
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 
 
 @Component({
@@ -13,6 +14,7 @@ import {finalize} from "rxjs/operators";
 })
 export class OfferDashboardComponent implements OnInit {
 
+  public Editor = ClassicEditor;
   carModel: string | undefined;
   image: string = '';
   content: string | undefined;

@@ -8,3 +8,6 @@ mat-form-field{
 img{
     width: 100%;
 }
+:host ::ng-deep .ck-editor__editable_inline {
+    min-height: 200px;
+}

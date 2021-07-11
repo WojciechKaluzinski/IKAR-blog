@@ -5,6 +5,7 @@ import {RouterModule, Routes} from "@angular/router";
 import { OfferDashboardComponent } from './offer-dashboard/offer-dashboard.component';
 import { OfferDetailComponent } from './offer-detail/offer-detail.component';
 import { OfferListComponent } from './offer-list/offer-list.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 const routes: Routes = [
   { path: 'oferty', component:OfferListComponent},
@@ -20,7 +21,8 @@ const routes: Routes = [
   ],
   imports: [
     SharedModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    CKEditorModule
   ],
   providers: [OfferService]
 })

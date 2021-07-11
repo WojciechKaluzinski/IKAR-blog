@@ -6,9 +6,7 @@
                 <input matInput placeholder="Pojazd" [(ngModel)]="offer.carModel">
             </mat-form-field>
             <br>
-            <mat-form-field>
-                <textarea matInput placeholder="Opis" [(ngModel)]="offer.content" rows="10"></textarea>
-            </mat-form-field>
+            <ckeditor [editor]="Editor" [(ngModel)]="offer.content"></ckeditor>
             <br>
             <mat-form-field>
                 <input matInput placeholder="Właściciel" [(ngModel)]="offer.owner">
@@ -30,7 +28,7 @@
                 dnia:  {{offer.published.toDate() | date: 'short'}}</small></p>
             <mat-card-content>
                 <h3>{{offer.carModel}}</h3>
-                <p>{{offer.content}}</p>
+                <p [innerHTML]="offer.content"></p>
                 <h2>{{offer.owner}}</h2>
                 <a mat-raised-button color="primary" href="{{offer.phone}}" target="_blank">{{offer.phone}}</a>
             </mat-card-content>

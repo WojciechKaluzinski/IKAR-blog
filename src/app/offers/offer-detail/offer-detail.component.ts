@@ -3,6 +3,7 @@ import {Router, ActivatedRoute} from "@angular/router";
 import {OfferService} from "../offer.service";
 import {Offer} from "../offer";
 import {AuthService} from "../../core/auth.service";
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'app-offer-detail',
@@ -11,6 +12,7 @@ import {AuthService} from "../../core/auth.service";
 })
 export class OfferDetailComponent implements OnInit {
 
+  public Editor = ClassicEditor;
   offer: Offer | undefined;
   editing: boolean = false;
 
