@@ -6,7 +6,8 @@
                 <input matInput placeholder="Pojazd" [(ngModel)]="offer.carModel">
             </mat-form-field>
             <br>
-            <ckeditor [editor]="Editor" [(ngModel)]="offer.content"></ckeditor>
+           <!-- <ckeditor [editor]="Editor" [(ngModel)]="offer.content" data="{{offer.content}}"></ckeditor>-->
+            <ckeditor [editor]="Editor" data="{{offer.content}}" (change)="onChange($event)"></ckeditor>
             <br>
             <mat-form-field>
                 <input matInput placeholder="Właściciel" [(ngModel)]="offer.owner">

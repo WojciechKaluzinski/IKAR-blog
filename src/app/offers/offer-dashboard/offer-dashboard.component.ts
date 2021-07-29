@@ -4,6 +4,8 @@ import {OfferService} from "../offer.service";
 import {Observable, Subscription} from "rxjs";
 import { AngularFireStorage } from 'angularfire2/storage';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { ChangeEvent } from '@ckeditor/ckeditor5-angular/ckeditor.component';
+
 
 
 
@@ -34,6 +36,7 @@ export class OfferDashboardComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
   createOffer() {
     const data = {

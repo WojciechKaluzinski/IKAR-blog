@@ -6,7 +6,8 @@
                 <input matInput placeholder="Tytuł" [(ngModel)]="post.title">
             </mat-form-field>
             <br>
-            <ckeditor [editor]="Editor" [(ngModel)]="post.content"></ckeditor>
+            <!--<ckeditor [editor]="Editor" [(ngModel)]="post.content" data="<p>Hello, world!</p>"></ckeditor>-->
+            <ckeditor [editor]="Editor" data="{{post.content}}" (change)="onChange($event)"></ckeditor>
             <br>
             <mat-form-field>
                 <input matInput placeholder="Adres link" [(ngModel)]="post.linkAddress">

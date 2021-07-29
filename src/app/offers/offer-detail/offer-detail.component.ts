@@ -4,6 +4,8 @@ import {OfferService} from "../offer.service";
 import {Offer} from "../offer";
 import {AuthService} from "../../core/auth.service";
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import {ChangeEvent} from "@ckeditor/ckeditor5-angular";
+import * as DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
 
 @Component({
   selector: 'app-offer-detail',
@@ -21,8 +23,9 @@ export class OfferDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getOffer();
-    console.log(this)
   }
+
+
 
   getOffer() {
     const id = this.route.snapshot.paramMap.get('id');
@@ -50,5 +53,9 @@ export class OfferDetailComponent implements OnInit {
     }
     this.router.navigate(["/oferty"]).then()
   }
-
+  public onChange( { editor }: ChangeEvent ) {
+    const data = editor.getData();
+    // @ts-ignore
+    this.offer?.content = data;
+  }
 }

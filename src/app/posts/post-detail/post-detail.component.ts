@@ -4,6 +4,7 @@ import {PostService} from "../post.service";
 import {Post} from "../post";
 import {AuthService} from "../../core/auth.service";
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import {ChangeEvent} from "@ckeditor/ckeditor5-angular";
 
 @Component({
     selector: 'app-post-detail',
@@ -50,6 +51,12 @@ export class PostDetailComponent implements OnInit {
             this.postService.delete(id).then();
         }
         this.router.navigate(["/blog"]).then()
+    }
+
+    public onChange( { editor }: ChangeEvent ) {
+        const data = editor.getData();
+        // @ts-ignore
+        this.post?.content = data;
     }
 
 }
